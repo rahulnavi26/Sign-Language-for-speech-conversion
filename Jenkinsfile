@@ -8,16 +8,22 @@ pipeline {
             }
         }
 
+        stage('Check Python') {
+            steps {
+                sh 'python3 --version'
+                sh 'pip3 --version'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
-                bat 'python --version'
-                bat 'pip install -r requirements.txt'
+                sh 'pip3 install -r requirements.txt'
             }
         }
 
         stage('Run Python File') {
             steps {
-                bat 'python Testing.py'
+                sh 'python3 Testing.py'
             }
         }
     }
