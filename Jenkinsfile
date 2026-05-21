@@ -22,9 +22,14 @@ pipeline {
             }
         }
 
+        stage('Upgrade Pip Tools') {
+            steps {
+                sh './venv/bin/python -m pip install --upgrade pip setuptools wheel'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
-                sh './venv/bin/python -m pip install --upgrade pip'
                 sh './venv/bin/pip install -r requirements.txt'
             }
         }
