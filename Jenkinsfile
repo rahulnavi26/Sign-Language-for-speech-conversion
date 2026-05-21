@@ -10,15 +10,14 @@ pipeline {
 
         stage('Check Python') {
             steps {
-                sh 'python3 --version'
-                sh 'pip3 --version'
+                sh 'python3.10 --version'
             }
         }
 
         stage('Create Virtual Environment') {
             steps {
                 sh 'rm -rf venv'
-                sh 'python3 -m venv venv'
+                sh 'python3.10 -m venv venv'
             }
         }
 
